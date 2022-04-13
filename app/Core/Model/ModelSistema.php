@@ -13,9 +13,9 @@ class ModelSistema extends ModelBase
     private ModelGet $ModelGet;
     
     public function __construct() {
-        $this->getUrl();
-        $this->getPost();
-        $this->getGet();
+        $this->getModelUrl();
+        $this->getModelPost();
+        $this->getModelGet();
     }
     
     public function getModelUrl(): ModelUrl 

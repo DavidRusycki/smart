@@ -42,9 +42,9 @@ class ControllerSistema extends ControllerBase
     
     public function callController() : bool
     {
+        list($sRotina, $iAcao, $iMetodo) = $this->getModel()->getModelGet()->getParametros();
         
-        
-        
+        $oController = new {'Controller'.ucfirst($sRotina)};
     }
     
 }
