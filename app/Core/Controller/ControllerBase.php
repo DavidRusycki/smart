@@ -1,5 +1,7 @@
 <?php
-namespace Controller;
+namespace Core\Controller;
+
+use Core\Model;
 
 /**
  * Controller Base do sistema.
@@ -8,18 +10,27 @@ namespace Controller;
 abstract class ControllerBase 
 {
     
-    private Model $Model;
+    private object $Model;
     
+    /**
+     * Método padrão para todo controller.
+     */
     public abstract function init();
     
-    public function getModel() : Model 
+    public function getModel() : object 
     {
         return $this->Model;
     }
 
-    public function setModel(Model $Model): self 
+    public function setModel(object $Model): self 
     {
-        $this->Model = $Model;
+        if ($Model instanceof Model\ModelBase) {
+            $this->Model = $Model;
+        }
+        else 
+        {
+            throw new \Exception('Os modelos do sistema devem extender de \Core\Model\ModelBase.');
+        }
         
         return $this;
     }

@@ -1,5 +1,5 @@
 <?php
-namespace Model;
+namespace Core\Model;
 
 /**
  * Model Base do sistema
